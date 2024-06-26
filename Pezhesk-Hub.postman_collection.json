@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "3911dc75-b2ed-416e-9bc7-7b89f2ea154b",
+		"name": "PezheskHub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30705122"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{http://localhost/}}/register",
+							"host": [
+								"{{http://localhost/}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "c2YDcBh2uniWL7N7VHdkiMzhWyENpcOMSwEBcvmE88639d2f",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"wrkngnw rifwr gierhgiu \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/posts",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "c2YDcBh2uniWL7N7VHdkiMzhWyENpcOMSwEBcvmE88639d2f",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"wrkngnw rifwr 85weg1 \",\r\n    \"content\" : \"wefjwb fiwf wofwif wf rjfir fnrjrne rf ererenef rf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/posts/250",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"posts",
+								"250"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "d8c12c2ade05e9a6754d4a2ee311a5c15a7210f086ce3951b63578fd35e97ea7",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"wrkngnw rifwr 85weg1 \",\r\n    \"content\" : \"wefjwb fiwf wofwif wf rjfir fnrjrne rf ererenef rf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/posts/15",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"posts",
+								"15"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
