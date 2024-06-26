@@ -27,17 +27,17 @@ return Application::configure(basePath: dirname(__DIR__))
         });
         $exceptions->renderable(function (NotFoundHttpException $e) {
             return response()->json([
-                'message' => 'Not Found',
+                'message' => $e->getMessage(),
             ], $e->getStatusCode());
         });
         $exceptions->renderable(function (MethodNotAllowedHttpException $e) {
             return response()->json([
-                'message' => 'Not Found',
+                'message' => $e->getMessage(),
             ], $e->getStatusCode());
         });
         $exceptions->renderable(function (MethodNotAllowedHttpException $e) {
             return response()->json([
-                'message' => 'Not Found',
+                'message' => $e->getMessage(),
             ], $e->getStatusCode());
         });
         $exceptions->renderable(function (\Exception $e) {

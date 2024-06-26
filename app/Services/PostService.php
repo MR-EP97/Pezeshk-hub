@@ -23,9 +23,9 @@ class PostService
         return $this->postRepository->update($data, $id);
     }
 
-    public function delete($id): Post
+    public function delete($id): void
     {
-        return $this->postRepository->delete($id);
+         $this->postRepository->delete($id);
     }
 
     public function all(int $perPage = 10)

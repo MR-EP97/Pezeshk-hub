@@ -15,26 +15,28 @@ trait CustomResponseTraits
      * @param int $code
      * @return JsonResponse
      */
-    public function successResponse(array $data = [], string $status = 'success', int $code = HttpResponse::HTTP_OK): JsonResponse
+    public function successResponse(string $message = '', array $data = [], int $code = HttpResponse::HTTP_OK): JsonResponse
     {
         return response()->json([
-            'status' => $status,
+            'status' => 'success',
+            'message' => $message,
             'data' => $data,
         ], $code);
     }
 
     /**
      * Error Response api base
+     * @param string $message
      * @param array $data
-     * @param string $status
      * @param int $code
      * @return JsonResponse
      */
 
-    public function errorResponse(array $data = [], string $status = 'error', int $code = HttpResponse::HTTP_NOT_FOUND): JsonResponse
+    public function errorResponse(string $message = '', array $data = [], int $code = HttpResponse::HTTP_NOT_FOUND): JsonResponse
     {
         return response()->json([
-            'status' => $status,
+            'status' => 'error',
+            'message' => $message,
             'data' => $data,
         ], $code);
     }

@@ -15,12 +15,12 @@ class ApiFormRequest extends FormRequest
 
     protected function failedValidation(Validator $validator): JsonResponse
     {
-        throw new HttpResponseException($this->errorResponse(['message' => $validator->getMessageBag()], code: HttpResponse::HTTP_BAD_REQUEST));
+        throw new HttpResponseException($this->errorResponse($validator->getMessageBag(), code: HttpResponse::HTTP_BAD_REQUEST));
     }
 
     protected function failedAuthorization(): JsonResponse
     {
-        throw new HttpResponseException($this->errorResponse(['message' => 'Unauthorized'], code: HttpResponse::HTTP_UNAUTHORIZED));
+        throw new HttpResponseException($this->errorResponse('Unauthorized', code: HttpResponse::HTTP_UNAUTHORIZED));
     }
 
 
