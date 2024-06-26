@@ -24,7 +24,9 @@ php artisan migrate
 php artisan --seed
 
 #Then launch the server:
-php artisan serve
+php artisan serve --port=80
 ```
 
 The Laravel sample project is now up and running! Access it at http://localhost:8000.
+
+You can import the uploaded JSON file in this project for testing in Postman (Pezhesk-Hub.postman_collection.json)
