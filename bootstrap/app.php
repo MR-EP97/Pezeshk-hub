@@ -7,6 +7,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Response as HttpResponse;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -35,14 +36,14 @@ return Application::configure(basePath: dirname(__DIR__))
                 'message' => $e->getMessage(),
             ], $e->getStatusCode());
         });
-        $exceptions->renderable(function (MethodNotAllowedHttpException $e) {
+        $exceptions->renderable(function (RouteNotFoundException $e) {
             return response()->json([
                 'message' => $e->getMessage(),
-            ], $e->getStatusCode());
+            ], HttpResponse::HTTP_FORBIDDEN);
         });
         $exceptions->renderable(function (\Exception $e) {
             return response()->json([
-                'message' => 'error',
+                'message' => $e->getMessage(),
             ], HttpResponse::HTTP_NOT_FOUND);
         });
     })->create();

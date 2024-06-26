@@ -22,15 +22,20 @@ class UserResource extends JsonResource
      *         property="email",
      *         type="string",
      *       ),
+     *     @OA\Property(
+     *          property="created_at",
+     *          type="date",
+     *        ),
      *     )
      *
-    Transform the resource into an array.     * @return array<string, mixed>
+     * Transform the resource into an array.     * @return array<string, mixed>
      */
     public function toArray(Request $request): array
     {
         return [
             'name' => $this->name,
             'email' => $this->email,
+            'created_at' => date_format($this->created_at, 'Y-m-d H:i'),
         ];
     }
 }

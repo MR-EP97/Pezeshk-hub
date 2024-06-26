@@ -61,7 +61,7 @@ class AuthController extends Controller
     public function register(RegisterFormRequest $request): JsonResponse
     {
         $user = $this->userService->create($request->safe()->only(['name', 'email', 'password']));
-        return $this->successResponse('User Registered successfully', array(UserResource::make($user)));
+        return $this->successResponse('User Registered successfully', ['user' => UserResource::make($user)], HttpResponse::HTTP_CREATED);
     }
 
 
@@ -105,8 +105,8 @@ class AuthController extends Controller
         $token = $request->user()->createToken('auth_token')->plainTextToken;
 
         return $this->successResponse(
-            data: [
-                'message' => 'Login successfully',
+            'Login successfully',
+            [
                 'access_token' => $token,
                 'token_type' => 'Bearer'
             ]);

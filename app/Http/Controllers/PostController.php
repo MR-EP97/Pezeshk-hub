@@ -105,7 +105,7 @@ class PostController extends Controller
     public function show(string $id): JsonResponse
     {
         try {
-            return $this->successResponse(data: array(PostResource::make($this->postService->find($id))));
+            return $this->successResponse(data: ['post' => PostResource::make($this->postService->find($id))]);
         } catch (\Exception $e) {
             return $this->errorResponse($e->getMessage());
         }
@@ -153,7 +153,8 @@ class PostController extends Controller
 
         return $this->successResponse(
             'Post Created Successfully',
-            array(PostResource::make($this->postService->create($input))),
+            ['post' => PostResource::make($this->postService->create($input))],
+            HttpResponse::HTTP_CREATED
         );
     }
 
@@ -217,7 +218,7 @@ class PostController extends Controller
             $input = array_merge($request->safe()->only(['title', 'content']), ['user_id' => $request->user()->id]);
             return $this->successResponse(
                 'Post Updated Successfully',
-                array(PostResource::make($this->postService->update($input, $id))),
+                ['post' => PostResource::make($this->postService->update($input, $id))],
             );
         }
 
